@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libLuau.Ast.a CMakeFiles/Luau.Ast.dir/Ast/src/Ast.cpp.o CMakeFiles/Luau.Ast.dir/Ast/src/Confusables.cpp.o CMakeFiles/Luau.Ast.dir/Ast/src/Lexer.cpp.o CMakeFiles/Luau.Ast.dir/Ast/src/Location.cpp.o CMakeFiles/Luau.Ast.dir/Ast/src/Parser.cpp.o CMakeFiles/Luau.Ast.dir/Ast/src/StringUtils.cpp.o CMakeFiles/Luau.Ast.dir/Ast/src/TimeTrace.cpp.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libLuau.Ast.a
