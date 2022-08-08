@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libLuau.CodeGen.a CMakeFiles/Luau.CodeGen.dir/CodeGen/src/AssemblyBuilderX64.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libLuau.CodeGen.a
