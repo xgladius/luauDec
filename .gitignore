@@ -34,3 +34,6 @@
 # CLion folders
 cmake-build-debug
 cmake-build-release
+
+# MacOS
+.DS_store
