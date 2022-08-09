@@ -37,3 +37,6 @@ cmake-build-release
 
 # MacOS
 .DS_store
+
+#GitHub
+.github
