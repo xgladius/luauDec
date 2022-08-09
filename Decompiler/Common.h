@@ -1,5 +1,5 @@
 //
-// Created by Braeden Weaver on 8/6/22.
+// Created by xgladius on 8/6/22.
 //
 #pragma once
 #include <memory>

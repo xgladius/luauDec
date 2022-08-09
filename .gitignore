@@ -34,6 +34,7 @@
 # CLion folders
 cmake-build-debug
 cmake-build-release
+.idea
 
 # MacOS
 .DS_store

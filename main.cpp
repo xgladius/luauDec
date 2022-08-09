@@ -2,8 +2,8 @@
 #include <string>
 #include "Decompiler/Decompile.h"
 #include "lualib.h"
-#include "luau/Compiler.h"
-#include "luau/BytecodeBuilder.h"
+#include "Luau/Compiler.h"
+#include "Luau/BytecodeBuilder.h"
 
 namespace luau {
     struct rbx_lua_bytecode_encoder : public Luau::BytecodeEncoder
@@ -26,7 +26,7 @@ static void setupState(lua_State* L)
 }
 
 int main() {
-    auto bytecode = luau::rbx_compile("return (function() print'a' end)()");
+    auto bytecode = luau::rbx_compile("x = {} x[game] = 1");
     std::unique_ptr<lua_State, void (*)(lua_State*)> globalState(luaL_newstate(), lua_close);
     lua_State* L = globalState.get();
     setupState(L);

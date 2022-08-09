@@ -1,5 +1,5 @@
 //
-// Created by Braeden Weaver on 8/7/22.
+// Created by xgladius on 8/7/22.
 //
 #pragma once
 #include <unordered_map>
@@ -21,4 +21,8 @@ namespace Luau::Decompiler::AstGen::Handlers {
     };
 
     locVar genLocalStat(VirtualAstStack& virtualStack, std::unordered_map<int, AstLocal*>& locVars, unsigned int insn);
+
+    AstExprTable* genTableAst(VirtualAstStack& virtualStack, unsigned int insn, int index);
+
+    AstStatAssign* genSetTable(VirtualAstStack& virtualStack, unsigned int insn);
 }
