@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        type: [Debug, Release]
+        type: [Release]
 
     steps:
     - name: Checkout code
@@ -25,11 +25,3 @@ jobs:
       run: |
         cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{matrix.type}}
         cmake --build ${{github.workspace}}/build --config ${{matrix.type}}
-    - name: Create Artifact
-      run: |
-        cp -R ${{github.workspace}}/build release
-    - name: Publish Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: ${{ format('{0}-x64-{1}', matrix.os, matrix.type) }}
-        path: release
