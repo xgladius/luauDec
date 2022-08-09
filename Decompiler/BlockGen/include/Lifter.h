@@ -3,6 +3,7 @@
 //
 #pragma once
 #include <vector>
+#include "Luau/BytecodeBuilder.h"
 #include "../../Common.h"
 
 namespace Luau::Decompiler::BlockGen::Lifter {
