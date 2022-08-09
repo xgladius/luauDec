@@ -37,7 +37,7 @@ cmake-build-release
 .idea
 
 # MacOS
-.DS_store
+.DS_Store
 
 #GitHub
 .github
