@@ -1,5 +1,5 @@
 //
-// Created by Braeden Weaver on 8/7/22.
+// Created by xgladius on 8/7/22.
 //
 #include <iostream>
 #include <Luau/Transpiler.h>
