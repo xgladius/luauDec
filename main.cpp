@@ -3,7 +3,6 @@
 #include "Decompiler/Decompile.h"
 #include "lualib.h"
 #include "Luau/Compiler.h"
-#include "Luau/BytecodeBuilder.h"
 
 namespace luau {
     struct rbx_lua_bytecode_encoder : public Luau::BytecodeEncoder
