@@ -233,7 +233,6 @@ namespace Luau::Decompiler::BlockGen {
                                                                         virtualStack[LUAU_INSN_C(*insn)]});
                 break;
             case LOP_RETURN: {
-                printf("return b: %d\n",LUAU_INSN_B(*insn));
                 if (LUAU_INSN_B(*insn) - 1 > 0) {
                     auto* argVec = new std::vector<AstExpr *>{};
                     int argCount = LUAU_INSN_B(*insn) == 0 ? virtualStack.getTop() + 1 : LUAU_INSN_B(*insn) - 1;
