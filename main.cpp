@@ -25,7 +25,7 @@ static void setupState(lua_State* L)
 }
 
 int main() {
-    auto bytecode = luau::rbx_compile("x = 1 if x == 1 then print(x) else print'x' end");
+    auto bytecode = luau::rbx_compile("x = 1 while true do for i=1, 19 do print(x) end end");
     std::unique_ptr<lua_State, void (*)(lua_State*)> globalState(luaL_newstate(), lua_close);
     lua_State* L = globalState.get();
     setupState(L);
