@@ -1,5 +1,7 @@
 # luauDec
 
+![luauDec logo](luauDec.png)
+
 Decompiler for luau (https://luau-lang.org/) written by xgladius
 
 luauDec is a decompiler for the luau language created by Roblox, leveraging built-in luau tooling to generate ast, and then transpile that ast into readable code.
@@ -13,6 +15,14 @@ The decompiler was designed to have a few things in mind,
 ***Easy to understand and use*** - The code is written in a way that anyone can understand it, given they understand C++ of course.
 
 ***Speed*** - The decompiler does not invoke the luau VM, (like some other decompilers), allowing for it to be incredibly fast.
+
+***Multi-platform*** - Works on all platforms
+
+# Building
+
+1. `git clone --recursive https://github.com/xgladius/luauDec.git`
+2. `cd luauDec`
+3. `cmake . && make`
 
 ## How it works
 
