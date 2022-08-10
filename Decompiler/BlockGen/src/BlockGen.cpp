@@ -238,7 +238,8 @@ namespace Luau::Decompiler::BlockGen {
                     int argCount = LUAU_INSN_B(*insn) == 0 ? virtualStack.getTop() + 1 : LUAU_INSN_B(*insn) - 1;
                     unsigned int startReg = LUAU_INSN_A(*insn);
                     for (unsigned int i = startReg; i < startReg + argCount; i++) {
-                        argVec->push_back(virtualStack[i]);
+                        if (virtualStack[i])
+                            argVec->push_back(virtualStack[i]);
                     }
                     AstArray<AstExpr *> args {argVec->data(), argVec->size()};
                     bodyHandler.addStat(new AstStatReturn {Location(), args});

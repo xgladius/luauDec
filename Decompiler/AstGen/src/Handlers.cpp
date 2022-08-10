@@ -15,11 +15,15 @@ namespace Luau::Decompiler::AstGen::Handlers {
         int argCount = LUAU_INSN_B(insn) == 0 ? virtualStack.getTop() : LUAU_INSN_B(insn) - 1;
         unsigned int startReg = isSelf ? LUAU_INSN_A(insn) + 2 : LUAU_INSN_A(insn) + 1;
         for (unsigned int i = startReg; i <= LUAU_INSN_A(insn) + argCount; i++) {
-            argVec->push_back(virtualStack[i]);
+            auto reg = virtualStack[i];
+            if (reg) {
+                argVec->push_back(reg);
+                if (LUAU_INSN_B(insn) != 0)
+                    virtualStack.remove(i);
+            }
         }
 
         AstArray<AstExpr *> args {argVec->data(), argVec->size()};
-        //virtualStack.remove(LUAU_INSN_A(insn));
         return new AstExprCall { Location(), function, args, isSelf, Location() };
     }
 
