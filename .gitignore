@@ -41,7 +41,7 @@ cmake-build-release
 
 # Windows VS
 .vs
-.out
+out
 
 
 #GitHub
