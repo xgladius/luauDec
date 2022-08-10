@@ -25,7 +25,7 @@ static void setupState(lua_State* L)
 }
 
 int main() {
-    auto bytecode = luau::rbx_compile("local f = function() return 123 end; return f()");
+    auto bytecode = luau::rbx_compile("return (function() return 123; end)();");
     std::unique_ptr<lua_State, void (*)(lua_State*)> globalState(luaL_newstate(), lua_close);
     lua_State* L = globalState.get();
     setupState(L);
