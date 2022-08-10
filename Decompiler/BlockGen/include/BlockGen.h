@@ -30,8 +30,13 @@ namespace Luau::Decompiler::BlockGen {
 
         void generateFunctionArgs();
     public:
+#ifndef _MSC_VER
         explicit BlockGen<true>(Proto* p, std::vector<AstExprFunction*> subFuncs);
         explicit BlockGen<false>(Proto* p);
+#else
+        BlockGen(Proto* p, std::vector<AstExprFunction*> subFuncs);
+        BlockGen(Proto* p);
+#endif
 
         auto generate() -> typename std::conditional<isMain,
                 AstStatBlock*,

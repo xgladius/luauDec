@@ -9,6 +9,12 @@ enable_testing()
 
 target_include_directories(luauDec PRIVATE include)
 
+option(LUAU_BUILD_CLI "Build CLI" OFF)
+option(LUAU_BUILD_TESTS "Build tests" OFF)
+option(LUAU_BUILD_WEB "Build Web module" OFF)
+option(LUAU_WERROR "Warnings as errors" OFF)
+option(LUAU_STATIC_CRT "Link with the static CRT (/MT)" OFF)
+
 add_subdirectory(luau)
 target_link_libraries(luauDec Luau.Compiler)
 target_link_libraries(luauDec Luau.Analysis)
