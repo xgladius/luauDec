@@ -8,6 +8,7 @@ namespace Luau::Decompiler::BlockGen {
     enum BodyType {
         MAIN = -1,
         FORPREP,
+        FORGPREP,
         IF,
         WHILE
     };
