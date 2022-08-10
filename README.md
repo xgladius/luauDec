@@ -1,5 +1,7 @@
 # luauDec
 
+![luauDec logo](luauDec.png)
+
 Decompiler for luau (https://luau-lang.org/) written by xgladius
 
 luauDec is a decompiler for the luau language created by Roblox, leveraging built-in luau tooling to generate ast, and then transpile that ast into readable code.
