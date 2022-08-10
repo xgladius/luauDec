@@ -32,8 +32,17 @@ namespace Luau::Decompiler::BlockGen {
                 ));
     }
 
+    void BodyHandler::makeWhile() {
+        bodyTypeStack.push_back(BodyType::WHILE);
+        generators.push_back(new AstGen::AstStatWhileGenerator());
+    }
+
     void BodyHandler::makeMain() {
         bodyTypeStack.push_back(BodyType::MAIN);
         generators.push_back(new AstGen::BodyGenerator());
+    }
+
+    void BodyHandler::updateWhileCond(AstExpr *condition) {
+        ((AstGen::AstStatWhileGenerator*)generators[generators.size() - 1])->updateCondition(condition);
     }
 }

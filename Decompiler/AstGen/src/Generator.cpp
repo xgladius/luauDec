@@ -20,7 +20,6 @@ namespace Luau::Decompiler::AstGen {
         AstArray<AstStat*> ebodyArray {elseBody->data(), elseBody->size()};
         return new AstStatIf{ Location(), condition,
                               new AstStatBlock {Location(), bodyArray},
-                              //new AstStatBlock {Location(), ebodyArray},
                               nullptr,
                               Location(), Location(), true };
     }
@@ -28,5 +27,15 @@ namespace Luau::Decompiler::AstGen {
     AstStat* BodyGenerator::generate() {
         AstArray<AstStat*> bodyArray {body->data(), body->size()};
         return new AstStatBlock{ Location(), bodyArray };
+    }
+
+    AstStat* AstStatWhileGenerator::generate() {
+        AstArray<AstStat*> bodyArray {body->data(), body->size()};
+        return new AstStatWhile { Location(), condition, new AstStatBlock {Location(), bodyArray},
+                                  true, Location(), true };
+    }
+
+    void AstStatWhileGenerator::updateCondition(AstExpr *cond) {
+        condition = cond;
     }
 }

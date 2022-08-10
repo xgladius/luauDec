@@ -8,7 +8,8 @@ namespace Luau::Decompiler::BlockGen {
     enum BodyType {
         MAIN = -1,
         FORPREP,
-        IF
+        IF,
+        WHILE
     };
 
     class BodyHandler {
@@ -26,5 +27,9 @@ namespace Luau::Decompiler::BlockGen {
         void makeFor(AstLocal* var, AstExpr* from, AstExpr* to, AstExpr* step);
 
         void makeMain();
+
+        void makeWhile();
+
+        void updateWhileCond(AstExpr* condition);
     };
 }

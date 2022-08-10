@@ -43,4 +43,15 @@ namespace Luau::Decompiler::AstGen {
         explicit AstStatIfGenerator(AstExpr* condition) : condition(condition), elseBody(new std::vector<AstStat*>{}),
                                                           thenBody(new std::vector<AstStat*>{}) {};
     };
+
+    class AstStatWhileGenerator : public Generator {
+    public:
+        AstExpr* condition;
+
+        [[nodiscard]] AstStat* generate() override;
+
+        explicit AstStatWhileGenerator() {};
+
+        void updateCondition(AstExpr* cond);
+    };
 }
