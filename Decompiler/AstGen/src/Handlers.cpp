@@ -23,13 +23,6 @@ namespace Luau::Decompiler::AstGen::Handlers {
             }
         }
 
-        if (!isSelf && function->is<AstExprFunction>()) {
-            auto ast = function->as<AstExprFunction>();
-            if (ast->debugname == "") {
-                function = new AstExprGroup {Location(), function};
-            }
-        }
-
         AstArray<AstExpr *> args {argVec->data(), argVec->size()};
         return new AstExprCall { Location(), function, args, isSelf, Location() };
     }

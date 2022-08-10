@@ -20,7 +20,7 @@ namespace Luau::Decompiler::BlockGen {
         BodyHandler bodyHandler;
 
         Luau::Decompiler::AstGen::VirtualAstStack virtualStack;
-        std::vector<AstExprFunction*> subFuncs;
+        std::vector<AstExpr*> subFuncs;
         std::vector<AstLocal*>* functionArgs;
         std::unordered_map<int, AstLocal*> locVars;
 
@@ -31,15 +31,15 @@ namespace Luau::Decompiler::BlockGen {
         void generateFunctionArgs();
     public:
 #ifndef _MSC_VER
-        explicit BlockGen<true>(Proto* p, std::vector<AstExprFunction*> subFuncs);
+        explicit BlockGen<true>(Proto* p, std::vector<AstExpr*> subFuncs);
         explicit BlockGen<false>(Proto* p);
 #else
-        BlockGen(Proto* p, std::vector<AstExprFunction*> subFuncs);
+        BlockGen(Proto* p, std::vector<AstExpr*> subFuncs);
         BlockGen(Proto* p);
 #endif
 
         auto generate() -> typename std::conditional<isMain,
                 AstStatBlock*,
-                AstExprFunction*>::type;
+                AstExpr*>::type;
     };
 }

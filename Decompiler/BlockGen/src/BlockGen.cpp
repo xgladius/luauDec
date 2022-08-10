@@ -11,7 +11,7 @@ namespace Luau::Decompiler::BlockGen {
                                             functionArgs(new std::vector<AstLocal*>{}) {}
 
     template<> BlockGen<true>::BlockGen(Proto *p,
-            std::vector<AstExprFunction*> subFuncs) : proto(p),
+            std::vector<AstExpr*> subFuncs) : proto(p),
                                                     blockInfo(Lifter::liftBodyInfo(p)),
                                                     functionArgs(new std::vector<AstLocal*>{}),
                                                     subFuncs(std::move(subFuncs)) {}
@@ -46,14 +46,18 @@ namespace Luau::Decompiler::BlockGen {
         return handleAllInstructions();
     }
 
-    template<> AstExprFunction* BlockGen<false>::generate() {
+    template<> AstExpr* BlockGen<false>::generate() {
         generateFunctionArgs();
         AstStatBlock* block = handleAllInstructions();
         auto name = AstName(proto->debugname ? proto->debugname->data : "");
-        return new AstExprFunction{AstExprFunction {Location(), AstArray<AstGenericType>{}, AstArray<AstGenericTypePack>{},
-                             new AstLocal(name, Location(), nullptr, 1, 1, nullptr),
-                             AstArray<AstLocal*>{functionArgs->data(), functionArgs->size()},
-                             proto->is_vararg ? std::make_optional(Location()) : std::nullopt, block, 1, AstName(name), {}}};
+        auto func = new AstExprFunction{AstExprFunction {Location(), AstArray<AstGenericType>{}, AstArray<AstGenericTypePack>{},
+                                                         new AstLocal(name, Location(), nullptr, 1, 1, nullptr),
+                                                         AstArray<AstLocal*>{functionArgs->data(), functionArgs->size()},
+                                                         proto->is_vararg ? std::make_optional(Location()) : std::nullopt, block, 1, AstName(name), {}}};
+        if (!proto->debugname) {
+            return new AstExprGroup {Location(), func};
+        }
+        return func;
     }
 
     template<bool isMain> void BlockGen<isMain>::handleInstruction(unsigned int *insn, int pc) {
