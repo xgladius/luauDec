@@ -12,6 +12,7 @@
 #include "../luau/VM/src/lmem.h"
 #include "../luau/VM/src/lbytecode.h"
 #include "../luau/VM/src/lapi.h"
+#include "../luau/VM/src/lobject.h"
 #include "../luau/Common/include/Luau/Bytecode.h"
 #include "../luau/Compiler/include/Luau/BytecodeBuilder.h"
 #include "Luau/Ast.h"

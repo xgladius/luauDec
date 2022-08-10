@@ -39,5 +39,10 @@ cmake-build-release
 # MacOS
 .DS_Store
 
+# Windows VS
+.vs
+.out
+
+
 #GitHub
 .github
