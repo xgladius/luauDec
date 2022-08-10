@@ -9,7 +9,7 @@ namespace Luau::Decompiler {
         if (luau_load(L, "=", bytecode.c_str(), bytecode.size(), 0) != 0)
             return lua_tostring(L, -1);
         Proto* p = ((Closure *)lua_topointer(L, -1))->l.p;
-        std::vector<AstExprFunction*> subFuncs;
+        std::vector<AstExpr*> subFuncs;
         for (auto i = 0; i < p->sizep; i++) {
             BlockGen::BlockGen<false> block(p->p[i]);
             subFuncs.push_back(block.generate());
