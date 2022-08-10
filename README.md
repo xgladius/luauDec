@@ -14,6 +14,14 @@ The decompiler was designed to have a few things in mind,
 
 ***Speed*** - The decompiler does not invoke the luau VM, (like some other decompilers), allowing for it to be incredibly fast.
 
+***Multi-platform*** - Works on all platforms
+
+# Building
+
+1. `git clone --recursive https://github.com/xgladius/luauDec.git`
+2. `cd luauDec`
+3. `cmake . && make`
+
 ## How it works
 
 1. luau bytecode is fed into the decompiler
