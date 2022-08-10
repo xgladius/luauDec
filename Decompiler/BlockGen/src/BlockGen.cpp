@@ -80,6 +80,7 @@ namespace Luau::Decompiler::BlockGen {
             }
             case LOP_CALL: {
                 auto callExpr = Luau::Decompiler::AstGen::Handlers::getCallAst(virtualStack, *insn);
+
                 if (LUAU_INSN_C(*insn) - 1 != 0) {
                     for (auto i = 0; i <= LUAU_INSN_C(*insn); i++) {
                         virtualStack.set(LUAU_INSN_A(*insn) + i, callExpr);
