@@ -74,8 +74,8 @@ namespace Luau::Decompiler::BlockGen {
                 break;
             }
             case LOP_LOADB: {
-                virtualStack.set(LUAU_INSN_A(*insn), new AstExprConstantBool { Location(),
-                                                                               LUAU_INSN_B(*insn) != 0 });
+                //virtualStack.set(LUAU_INSN_A(*insn), new AstExprConstantBool { Location(),
+                //                                                               LUAU_INSN_B(*insn) != 0 });
                 break;
             }
             case LOP_CALL: {
@@ -100,11 +100,11 @@ namespace Luau::Decompiler::BlockGen {
                 break;
             }
             case LOP_GETTABLEKS: {
-                virtualStack.set(LUAU_INSN_A(*insn), Luau::Decompiler::AstGen::Handlers::genAstExprName(virtualStack, *insn, *(insn + 1), '.'));
+                virtualStack.set(LUAU_INSN_A(*insn), Luau::Decompiler::AstGen::Handlers::genAstExprName(virtualStack, proto, *insn, *(insn + 1), '.'));
                 break;
             }
             case LOP_NAMECALL: {
-                virtualStack.set(LUAU_INSN_A(*insn), Luau::Decompiler::AstGen::Handlers::genAstExprName(virtualStack, *insn, *(insn + 1), ':'));
+                virtualStack.set(LUAU_INSN_A(*insn), Luau::Decompiler::AstGen::Handlers::genAstExprName(virtualStack, proto, *insn, *(insn + 1), ':'));
                 break;
             }
             case LOP_NEWCLOSURE: {

@@ -10,7 +10,7 @@
 namespace Luau::Decompiler::AstGen::Handlers {
     AstExprCall* getCallAst(VirtualAstStack& virtualStack, unsigned int insn);
 
-    AstExprIndexName* genAstExprName(VirtualAstStack& virtualStack, unsigned int insn, unsigned int aux, char symbol);
+    AstExprIndexName* genAstExprName(VirtualAstStack& virtualStack, Proto* proto, unsigned int insn, unsigned int aux, char symbol);
 
     AstStatAssign* getSetGlobalAssignment(VirtualAstStack& virtualStack, Proto* proto, unsigned int insn, unsigned int aux);
 

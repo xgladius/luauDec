@@ -28,8 +28,8 @@ namespace Luau::Decompiler::AstGen::Handlers {
         return new AstExprCall { Location(), function, args, isSelf, Location() };
     }
 
-    AstExprIndexName* genAstExprName(VirtualAstStack& virtualStack, unsigned int insn, unsigned int aux, char symbol) {
-        auto name = virtualStack[aux]->as<AstExprFunction>()->debugname;
+    AstExprIndexName* genAstExprName(VirtualAstStack& virtualStack, Proto* proto, unsigned int insn, unsigned int aux, char symbol) {
+        auto name = AstName(proto->k[aux].value.gc->ts.data);
         return new AstExprIndexName{Location(), virtualStack[LUAU_INSN_B(insn)],
                                                             name, Location(), Position(0, 0), symbol};
     }
